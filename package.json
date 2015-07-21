@@ -1,0 +1,28 @@
+{
+  "name": "dpd-amdclient",
+  "version": "0.0.1",
+  "description": "Deployd module. Adds a resource that returns an AMD (require.js) compatible version of dpd.js.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Deployd",
+    "AMD",
+    "require.js"
+  ],
+  "author": "Johannes Noe <info@johannesnoe.com> (https://github.com/docnoe)",
+  "license": "MIT",
+  "dependencies": {
+    "stream-buffers": "^2.2.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/docnoe/dpd-amdclient.git"
+  },
+  "bugs": {
+    "url": "https://github.com/docnoe/dpd-amdclient/issues"
+  },
+  "homepage": "https://github.com/docnoe/dpd-amdclient#readme"
+}
