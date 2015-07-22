@@ -17,3 +17,7 @@ In the frontend you can now require the new dpd.js from */amd/dpd.js*. So the pa
 	paths: [
 		dpd: "amd/dpd"
 	]
+
+### Dependencies!
+
+dpd.js depends on socket.io and ayepromise. Make sure to install and require these, too!
