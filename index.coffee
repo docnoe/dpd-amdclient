@@ -13,7 +13,7 @@ resourcesOnStart = null
 
 requireConfig =
   baseUrl: path.normalize "#{__dirname}/clib"
-  name: "dpd"
+  name: "amd/dpd"
   out: path.normalize "#{__dirname}/clib/dpdAmd.js"
   # optimize: "none" #uncomment for debugging
   paths:
@@ -36,7 +36,7 @@ generatedAmdClient = (cb) ->
       clibParts = data.split "// generatedCodeMarker"
       [part1, part2] = clibParts
       amdClib = "#{part1}#{collectionMethods}#{part2}"
-      fs.writeFileSync path.normalize("#{__dirname}/clib/dpd.js"), amdClib
+      fs.writeFileSync path.normalize("#{__dirname}/clib/amd/dpd.js"), amdClib
       requirejs.optimize requireConfig, (buildResponse) ->
         cb() if cb
 

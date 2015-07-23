@@ -1,6 +1,6 @@
 (function(factory) {
     if (typeof define === 'function' && define.amd) {
-        define("dpd",["ayepromise", "socket.io"], factory);
+        define(["ayepromise", "socket.io"], factory);
     } else {
         factory(ayepromise, io);
     }
