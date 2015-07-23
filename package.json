@@ -1,6 +1,6 @@
 {
   "name": "dpd-amdclient",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Deployd module. Adds a resource that returns an AMD (require.js) compatible version of dpd.js.",
   "main": "index.js",
   "scripts": {
