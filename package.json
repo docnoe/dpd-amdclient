@@ -1,6 +1,6 @@
 {
   "name": "dpd-amdclient",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Deployd module. Adds a resource that returns an AMD (require.js) compatible version of dpd.js.",
   "main": "index.js",
   "scripts": {
@@ -14,6 +14,8 @@
   "author": "Johannes Noe <info@johannesnoe.com> (https://github.com/docnoe)",
   "license": "MIT",
   "dependencies": {
+    "lodash": "^3.10.0",
+    "requirejs": "^2.1.19",
     "stream-buffers": "^2.2.0"
   },
   "devDependencies": {},

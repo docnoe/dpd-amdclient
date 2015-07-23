@@ -1,7 +1,6 @@
 (function(factory) {
     if (typeof define === 'function' && define.amd) {
-        // AMD. Register as an anonymous module.
-        define("dpd", ["ayepromise", "socketio"], factory);
+        define("dpd",["ayepromise", "socket.io"], factory);
     } else {
         factory(ayepromise, io);
     }
