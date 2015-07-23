@@ -25,7 +25,6 @@ requireConfig = {
   baseUrl: path.normalize(__dirname + "/clib"),
   name: "dpd",
   out: path.normalize(__dirname + "/clib/dpdAmd.js"),
-  optimize: "none",
   paths: {
     "ayepromise": "ayepromise.min",
     "socket.io": "socket.io.min"
