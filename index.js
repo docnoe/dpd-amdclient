@@ -23,7 +23,7 @@ resourcesOnStart = null;
 
 requireConfig = {
   baseUrl: path.normalize(__dirname + "/clib"),
-  name: "dpd",
+  name: "amd/dpd",
   out: path.normalize(__dirname + "/clib/dpdAmd.js"),
   paths: {
     "ayepromise": "ayepromise.min",
@@ -62,7 +62,7 @@ generatedAmdClient = function(cb) {
       clibParts = data.split("// generatedCodeMarker");
       part1 = clibParts[0], part2 = clibParts[1];
       amdClib = "" + part1 + collectionMethods + part2;
-      fs.writeFileSync(path.normalize(__dirname + "/clib/dpd.js"), amdClib);
+      fs.writeFileSync(path.normalize(__dirname + "/clib/amd/dpd.js"), amdClib);
       return requirejs.optimize(requireConfig, function(buildResponse) {
         if (cb) {
           return cb();
