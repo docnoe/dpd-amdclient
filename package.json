@@ -14,6 +14,8 @@
   "author": "Johannes Noe <info@johannesnoe.com> (https://github.com/docnoe)",
   "license": "MIT",
   "dependencies": {
+    "lodash": "^3.10.0",
+    "requirejs": "^2.1.19",
     "stream-buffers": "^2.2.0"
   },
   "devDependencies": {},
