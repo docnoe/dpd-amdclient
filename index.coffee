@@ -2,6 +2,9 @@ path = require 'path'
 util = require 'util'
 fs = require 'fs'
 _ = require 'lodash'
+mkdirp = require 'mkdirp'
+
+
 streamBuffers = require 'stream-buffers'
 requirejs = require 'requirejs'
 
@@ -10,6 +13,8 @@ ClientLib = require path.normalize "#{require.main.paths[0]}/deployd/lib/resourc
 
 client = null
 resourcesOnStart = null
+
+mkdirp path.normalize "#{__dirname}/clib/amd"
 
 requireConfig =
   baseUrl: path.normalize "#{__dirname}/clib"
@@ -53,17 +58,22 @@ AmdClientResource.label = "Amd client"
 AmdClientResource::clientGeneration = false
 
 AmdClientResource::handle = (ctx, next) ->
+  server = process.server
+
+  sendAmdFile = ->
+    stat = fs.statSync(requireConfig.out);
+    ctx.res.setHeader('Content-Type', 'text/javascript')
+    ctx.res.setHeader('Content-Length', stat.size)
+    readStream = fs.createReadStream(requireConfig.out);
+    readStream.pipe(ctx.res);
+
   if ctx.method is "GET"
-    server = process.server
-    resources = (resource.name for resource in server.resources)
+    unless server and server.resources
+      console.log "server.resources not defined"
+      next()
+      return
 
-    sendAmdFile = ->
-      stat = fs.statSync(requireConfig.out);
-      ctx.res.setHeader('Content-Type', 'text/javascript')
-      ctx.res.setHeader('Content-Length', stat.size)
-      readStream = fs.createReadStream(requireConfig.out);
-      readStream.pipe(ctx.res);
-
+    resources = (resourceLoop.name for resourceLoop in server.resources)
     if _.isEqual resourcesOnStart, resources
       sendAmdFile()
     else
