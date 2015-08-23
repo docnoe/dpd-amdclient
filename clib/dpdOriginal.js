@@ -1,6 +1,13 @@
 (function(factory) {
-    if (typeof define === 'function' && define.amd) {
+    // this is considered "safe":
+    var hasDefine = typeof define === 'function' && define.amd,
+    // hasDefine = typeof define === 'function',
+    hasExports = typeof module !== 'undefined' && module.exports;
+
+    if (hasDefine) {
         define(["ayepromise", "socket.io"], factory);
+    } else if (hasExports) {
+        module.exports = factory(require("ayepromise"), require("socket.io"));
     } else {
         factory(ayepromise, io);
     }
